@@ -69,7 +69,7 @@ export const logos = {
  * Centralize aqui para evitar URLs duplicadas no código.
  */
 export const brandLinks = {
-    whatsapp: 'https://wa.me/5511999999999',
+    whatsapp: 'https://wa.me/5547984236676',
     instagram: 'https://instagram.com/hferrazautomacao',
     /** Localização para exibição — não é um link clicável */
     location: 'Joinville/SC — Brasil',
