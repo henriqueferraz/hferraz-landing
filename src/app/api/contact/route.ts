@@ -16,7 +16,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { z } from 'zod'
 import { buildContactEmailHtml, buildContactEmailText } from '@/lib/email-template'
-import { ValidationError, ConfigurationError, NetworkError } from '@/lib/errors'
 import type { ApiResult } from '@/lib/errors'
 
 // ─── Validação ────────────────────────────────────────────────────────────────
@@ -37,7 +36,8 @@ const contactSchema = z.object({
  *
  * @returns 200 com `{ success: true }` em caso de sucesso
  * @returns 400 com detalhes de validação em caso de dados inválidos
- * @returns 500 em caso de erro de configuração ou falha no envio
+ * @returns 500 em caso de erro de configuração
+ * @returns 502 em caso de falha no envio via Resend
  */
 export async function POST(request: NextRequest): Promise<NextResponse<ApiResult<null>>> {
     // 1. Validar variáveis de ambiente
@@ -47,12 +47,18 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiResult
 
     if (!apiKey || apiKey.startsWith('re_xxx')) {
         console.error('[contact/route] RESEND_API_KEY não configurada')
-        throw new ConfigurationError('RESEND_API_KEY não configurada')
+        return NextResponse.json(
+            { success: false, error: 'Serviço de e-mail não configurado.', code: 500 },
+            { status: 500 }
+        )
     }
 
     if (!contactEmail) {
         console.error('[contact/route] CONTACT_EMAIL não configurada')
-        throw new ConfigurationError('CONTACT_EMAIL não configurada')
+        return NextResponse.json(
+            { success: false, error: 'Destinatário de e-mail não configurado.', code: 500 },
+            { status: 500 }
+        )
     }
 
     // 2. Parsear e validar o body
@@ -62,7 +68,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiResult
         body = await request.json()
     } catch {
         return NextResponse.json(
-            { success: false, error: 'Body inválido — esperado JSON', code: 400 },
+            { success: false, error: 'Requisição inválida.', code: 400 },
             { status: 400 }
         )
     }
@@ -71,7 +77,14 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiResult
 
     if (!parsed.success) {
         const firstError = parsed.error.errors[0]
-        throw new ValidationError(firstError?.message ?? 'Dados inválidos', firstError?.path[0]?.toString())
+        return NextResponse.json(
+            {
+                success: false,
+                error: firstError?.message ?? 'Dados inválidos.',
+                code: 400,
+            },
+            { status: 400 }
+        )
     }
 
     const data = parsed.data
@@ -93,10 +106,17 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiResult
 
     if (error) {
         console.error('[contact/route] Resend error:', error)
-        throw new NetworkError(`Falha ao enviar e-mail: ${error.message}`, 502)
+        return NextResponse.json(
+            {
+                success: false,
+                error: 'Falha ao enviar e-mail. Tente novamente ou entre em contato pelo WhatsApp.',
+                code: 502,
+            },
+            { status: 502 }
+        )
     }
 
-    console.info(`[contact/route] E-mail enviado para ${contactEmail} — remetente: ${data.email}`)
+    console.info(`[contact/route] E-mail enviado para ${contactEmail} — lead: ${data.email}`)
 
     return NextResponse.json({ success: true, data: null }, { status: 200 })
 }
@@ -105,7 +125,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiResult
 
 export async function GET(): Promise<NextResponse<ApiResult<null>>> {
     return NextResponse.json(
-        { success: false, error: 'Método não permitido', code: 405 },
+        { success: false, error: 'Método não permitido.', code: 405 },
         { status: 405 }
     )
 }
