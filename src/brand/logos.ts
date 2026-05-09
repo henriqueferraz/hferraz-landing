@@ -70,7 +70,7 @@ export const logos = {
  */
 export const brandLinks = {
     whatsapp: 'https://wa.me/5511999999999',
-    linkedin: 'https://linkedin.com/company/hferraz',
+    instagram: 'https://instagram.com/hferrazautomacao',
     /** Localização para exibição — não é um link clicável */
     location: 'São Paulo, Brasil',
 } as const
