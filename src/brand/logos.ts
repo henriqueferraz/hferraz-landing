@@ -72,7 +72,7 @@ export const brandLinks = {
     whatsapp: 'https://wa.me/5511999999999',
     instagram: 'https://instagram.com/hferrazautomacao',
     /** Localização para exibição — não é um link clicável */
-    location: 'São Paulo, Brasil',
+    location: 'Joinville/SC — Brasil',
 } as const
 
 /**
