@@ -24,6 +24,11 @@ import { Card, CardContent } from '@/components/ui/card'
 import { brandLinks } from '@/brand'
 import type { ContactFormData } from '@/types'
 
+/**
+ * Define o schema Zod para validação do formulário de contato.
+ * Todos os campos são obrigatórios.
+ */
+
 const contactSchema = z.object({
     name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
     email: z.string().email('E-mail inválido'),
@@ -71,6 +76,7 @@ const CONTACT_INFO: readonly ContactInfo[] = [
 export default function Contact(): React.ReactElement {
     const shouldReduceMotion = useReducedMotion()
     const [submitted, setSubmitted] = useState(false)
+    const [submitError, setSubmitError] = useState<string | null>(null)
 
     const {
         register,
@@ -86,9 +92,22 @@ export default function Contact(): React.ReactElement {
 
     const consentValue = watch('consent')
 
-    const onSubmit = async (_data: ContactFormData): Promise<void> => {
-        // Simula chamada de API — substituir por integração real
-        await new Promise((resolve) => setTimeout(resolve, 1500))
+    const onSubmit = async (data: ContactFormData): Promise<void> => {
+        setSubmitError(null)
+
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+
+        if (!response.ok) {
+            const result = await response.json().catch(() => null) as { error?: string } | null
+            const message = result?.error ?? 'Erro ao enviar mensagem. Tente novamente.'
+            setSubmitError(message)
+            return
+        }
+
         setSubmitted(true)
         reset()
     }
@@ -302,6 +321,16 @@ export default function Contact(): React.ReactElement {
                                                 </span>
                                             )}
                                         </div>
+
+                                        {/* Erro de envio */}
+                                        {submitError && (
+                                            <div
+                                                role="alert"
+                                                className="flex items-start gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+                                            >
+                                                <span className="font-mono text-xs leading-relaxed">{submitError}</span>
+                                            </div>
+                                        )}
 
                                         {/* Submit */}
                                         <button
