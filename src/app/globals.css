@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fontes ──────────────────────────────────────────────────────────────── */
+/* Carregadas via next/font no layout.tsx — sem @import externo para zero CLS */
+
+/* ─── Tokens shadcn/ui mapeados para a paleta HFerraz ─────────────────────── */
+@layer base {
+  :root {
+    /* Shadcn tokens — modo claro (não usado, projeto é dark-only) */
+    --background: oklch(0.08 0.02 240);
+    --foreground: oklch(0.93 0.02 240);
+    --card: oklch(0.11 0.025 240);
+    --card-foreground: oklch(0.93 0.02 240);
+    --popover: oklch(0.11 0.025 240);
+    --popover-foreground: oklch(0.93 0.02 240);
+    --primary: oklch(0.55 0.18 250);
+    --primary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.15 0.03 240);
+    --secondary-foreground: oklch(0.85 0.02 240);
+    --muted: oklch(0.15 0.03 240);
+    --muted-foreground: oklch(0.62 0.04 240);
+    --accent: oklch(0.58 0.2 255);
+    --accent-foreground: oklch(0.98 0 0);
+    --destructive: oklch(0.65 0.22 25);
+    --border: oklch(0.22 0.04 240);
+    --input: oklch(0.15 0.03 240);
+    --ring: oklch(0.55 0.18 250);
+    --radius: 0.5rem;
+
+    /* Tokens HFerraz — usados diretamente nos componentes customizados */
+    --hf-background: #050c1a;
+    --hf-surface: #0a1628;
+    --hf-surface-alt: #0f1f35;
+    --hf-border: #1a3050;
+    --hf-primary: #1e6fdc;
+    --hf-primary-light: #3d8ef0;
+    --hf-primary-glow: rgba(30, 111, 220, 0.2);
+    --hf-accent: #2a7fff;
+    --hf-muted: #8aa0b8;
+    --hf-foreground: #e8f0f8;
+    --hf-foreground-muted: #c0d0e0;
+    --hf-silver: #8b9cb5;
+    --hf-silver-light: #b0bfd4;
+  }
+
+  /* Projeto é dark-only — forçar dark em todos os contextos */
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--hf-background);
+    color: var(--hf-foreground);
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(30, 111, 220, 0.35);
+    color: #e8f0f8;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--hf-primary-light);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Componentes customizados HFerraz ────────────────────────────────────── */
+@layer components {
+
+  /* Glass card — superfície translúcida com borda gradiente */
+  .glass-card {
+    background: rgba(10, 22, 40, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 111, 220, 0.15);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        rgba(30, 111, 220, 0.3) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(30, 111, 220, 0.1) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Gradient border — borda com gradiente azul */
+  .gradient-border {
+    position: relative;
+    background: var(--hf-surface);
+    border-radius: 12px;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        rgba(30, 111, 220, 0.5),
+        rgba(255, 255, 255, 0.08),
+        rgba(42, 127, 255, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Botão primário com glow azul */
+  .btn-glow {
+    position: relative;
+    background: linear-gradient(135deg, #1e6fdc, #2a7fff);
+    color: #fff;
+    font-family: var(--font-syne), 'Syne', sans-serif;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 24px rgba(30, 111, 220, 0.5), 0 4px 16px rgba(30, 111, 220, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-glow:active {
+    transform: translateY(0);
+  }
+
+  /* Botão ghost com borda azul */
+  .btn-ghost {
+    border: 1px solid rgba(30, 111, 220, 0.4);
+    color: var(--hf-foreground-muted);
+    font-family: var(--font-syne), 'Syne', sans-serif;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--hf-primary-light);
+    color: var(--hf-foreground);
+    background: rgba(30, 111, 220, 0.08);
+  }
+
+  /* Título de seção */
+  .section-title {
+    font-family: var(--font-syne), 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--hf-foreground);
+    line-height: 1.15;
+  }
+
+  /* Texto com gradiente azul */
+  .text-gradient {
+    background: linear-gradient(135deg, #3d8ef0 0%, #2a7fff 50%, #a3c9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Linha separadora com gradiente */
+  .accent-line {
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #1e6fdc 30%,
+        #2a7fff 50%,
+        #1e6fdc 70%,
+        transparent 100%);
+    opacity: 0.5;
+  }
+
+  /* Badge de tecnologia */
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(30, 111, 220, 0.08);
+    border: 1px solid rgba(30, 111, 220, 0.2);
+    border-radius: 9999px;
+    font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--hf-silver-light);
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+
+  .tech-badge:hover {
+    background: rgba(30, 111, 220, 0.15);
+    border-color: rgba(30, 111, 220, 0.4);
+    color: var(--hf-foreground);
+    box-shadow: 0 0 12px rgba(30, 111, 220, 0.2);
+  }
+
+  /* Card de métrica */
+  .metric-card {
+    background: rgba(30, 111, 220, 0.06);
+    border: 1px solid rgba(30, 111, 220, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  .metric-card:hover {
+    background: rgba(30, 111, 220, 0.1);
+    border-color: rgba(30, 111, 220, 0.4);
+    box-shadow: 0 0 20px rgba(30, 111, 220, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+/* ─── Utilitários ─────────────────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Grade blueprint de fundo */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(26, 48, 80, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 48, 80, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px rgba(30, 111, 220, 0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(30, 111, 220, 0.5);
+  }
+
+  .font-display {
+    font-family: var(--font-syne), 'Syne', sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  }
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hf-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hf-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hf-primary);
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

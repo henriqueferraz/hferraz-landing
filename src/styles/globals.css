@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1493ff;
+    --color-background: #0c1324;
+    --color-surface: #191f31;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-on-surface;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass-card {
+    @apply backdrop-blur-glass bg-surface-base/40 border border-white/10 rounded-lg;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  }
+
+  /* Glass modal */
+  .glass-modal {
+    @apply backdrop-blur-modal bg-surface-low/60 border border-white/10 rounded-xl;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-md py-sm
+           bg-primary-container text-on-primary-container font-display font-semibold
+           rounded text-body-md transition-all duration-200
+           hover:shadow-glow hover:brightness-110 active:scale-95;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-md py-sm
+           border border-outline text-on-surface font-display font-semibold
+           rounded text-body-md transition-all duration-200
+           hover:backdrop-blur-glass hover:border-primary/50 hover:text-primary
+           active:scale-95;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full px-md py-sm bg-surface-high border border-outline-variant
+           rounded text-on-surface text-body-md font-sans
+           shadow-inner placeholder:text-on-surface-variant
+           transition-all duration-200
+           focus:outline-none focus:border-primary focus:shadow-glow-sm;
+  }
+
+  /* Section divider (HF accent bar) */
+  .accent-bar {
+    @apply h-px w-full rounded-full;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #1493ff 30%,
+      #a3c9ff 50%,
+      #1493ff 70%,
+      transparent 100%
+    );
+    opacity: 0.6;
+  }
+
+  /* Status chip */
+  .chip {
+    @apply inline-flex items-center gap-xs px-sm py-1
+           font-mono text-label-md rounded-full border;
+  }
+
+  .chip-success {
+    @apply chip bg-green-500/10 border-green-500/30 text-green-400;
+  }
+
+  .chip-warning {
+    @apply chip bg-amber-500/10 border-amber-500/30 text-amber-400;
+  }
+
+  .chip-error {
+    @apply chip bg-error/10 border-error/30 text-error;
+  }
+}
+
+@layer utilities {
+  /* Blueprint grid overlay */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #a3c9ff 0%, #1493ff 100%);
+  }
+
+  /* Gradient border */
+  .border-gradient {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+}
