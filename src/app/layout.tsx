@@ -3,7 +3,7 @@ import { Syne, DM_Sans, JetBrains_Mono, Geist } from 'next/font/google'
 import './globals.css'
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const syne = Syne({
     subsets: ['latin'],
@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
     title: 'HFerraz Automação | Especialistas em Automação de Processos',
     description:
-        'Especialistas em automação com N8N, APIs para WhatsApp e sistemas web com Next.js e Python. Soluções sob medida para otimizar seu negócio.',
+        'HFerraz Automação! Especialistas em automação de processos com N8N, desenvolvimento de APIs para WhatsApp e sistemas web com Next.js e Python. Criamos soluções sob medida para otimizar o tempo e aumentar a produtividade do seu negócio. Tecnologia que trabalha por você.',
     keywords: [
         'automação',
         'N8N',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: 'HFerraz Automação',
-        description: 'Tecnologia que trabalha por você.',
+        description: 'Especialistas em automação de processos.',
         type: 'website',
         locale: 'pt_BR',
         siteName: 'HFerraz Automação',
