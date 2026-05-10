@@ -166,7 +166,7 @@ export default function Footer(): React.ReactElement {
                         {brandMeta.copyright}
                     </p>
                     <p className="font-mono text-xs text-[#1a3050]">
-                        v{process.env.npm_package_version ?? '0.1.0'}
+                        Built with Next.js · TypeScript · Tailwind CSS · v{process.env.npm_package_version ?? '0.1.0'}
                     </p>
                 </div>
             </div>
