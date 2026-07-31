@@ -80,7 +80,7 @@ export const brandLinks = {
  */
 export const brandMeta = {
     name: 'HFerraz Automação',
-    tagline: 'Elevando padrões operacionais através de inteligência artificial e engenharia de software.',
-    shortDescription: 'Tecnologia que trabalha por você.',
+    tagline: 'Automação e inteligência artificial que fazem sua empresa crescer com menos custo.',
+    shortDescription: 'Tecnologia que trabalha por você — e vende por você.',
     copyright: '© 2024 HFerraz Automação. All rights reserved.',
 } as const

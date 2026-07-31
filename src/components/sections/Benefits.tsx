@@ -35,8 +35,8 @@ const BENEFITS: readonly Benefit[] = [
         description: 'Desenvolvidas especificamente para o seu negócio, não soluções genéricas de prateleira.',
     },
     {
-        title: 'Tecnologia e Confiança',
-        description: 'Soluções seguras, escaláveis e com suporte contínuo para garantir sua operação.',
+        title: 'IA que Gera Resultado',
+        description: 'Assistentes inteligentes que atendem, vendem e resolvem demandas — liberando sua equipe para o que realmente gera lucro.',
     },
 ] as const
 

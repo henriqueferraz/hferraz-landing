@@ -2,19 +2,20 @@
 
 import { useReducedMotion } from 'framer-motion'
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown, Zap, MessageSquare, Code2 } from 'lucide-react'
+import { ArrowRight, ChevronDown, Zap, MessageSquare, Code2, BrainCircuit } from 'lucide-react'
 
 const floatingChips = [
     { icon: Code2, label: '{ } API Sync', delay: 0 },
     { icon: Zap, label: 'N8N Trigger', delay: 0.3 },
     { icon: MessageSquare, label: 'WhatsApp Bot', delay: 0.6 },
+    { icon: BrainCircuit, label: 'Agente de IA', delay: 0.9 },
 ]
 
 const automationNodes = [
     { label: 'CRM Input', color: '#1e6fdc', x: '10%', y: '20%' },
     { label: 'N8N Flow', color: '#2a7fff', x: '45%', y: '10%' },
     { label: 'WhatsApp', color: '#25d366', x: '80%', y: '25%' },
-    { label: 'Database', color: '#8b9cb5', x: '20%', y: '65%' },
+    { label: 'Agente IA', color: '#22d3ee', x: '20%', y: '65%' },
     { label: 'API Layer', color: '#3d8ef0', x: '60%', y: '60%' },
     { label: 'Dashboard', color: '#1e6fdc', x: '85%', y: '70%' },
 ]
@@ -96,10 +97,11 @@ export default function Hero() {
                             transition={{ duration: 0.6, ease: 'easeOut', delay: shouldReduceMotion ? 0 : 0.2 }}
                             className="text-[#c0d0e0] text-lg leading-relaxed max-w-xl"
                         >
-                            Aceleramos operações corporativas através de arquiteturas sólidas.{' '}
-                            <span className="text-[#e8f0f8] font-medium">N8N, APIs para WhatsApp</span> e sistemas
-                            web escaláveis com{' '}
-                            <span className="text-[#e8f0f8] font-medium">Next.js e Python</span>.
+                            Reduza custos, acelere operações e escale o atendimento com{' '}
+                            <span className="text-[#e8f0f8] font-medium">automação</span>,{' '}
+                            <span className="text-[#e8f0f8] font-medium">WhatsApp</span> e{' '}
+                            <span className="text-[#e8f0f8] font-medium">inteligência artificial</span>{' '}
+                            sob medida para o seu negócio.
                         </motion.p>
 
                         {/* CTAs */}
@@ -247,7 +249,9 @@ export default function Hero() {
                                         ? '-top-4 -left-6'
                                         : i === 1
                                             ? '-bottom-4 left-8'
-                                            : '-top-2 -right-6'
+                                            : i === 2
+                                                ? '-top-2 -right-6'
+                                                : 'bottom-8 -right-8'
                                     }`}
                                 aria-hidden="true"
                             >

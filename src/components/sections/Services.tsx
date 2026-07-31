@@ -11,7 +11,7 @@
 
 import React from 'react'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
-import { Workflow, MessageSquare, Monitor, ArrowRight } from 'lucide-react'
+import { Workflow, MessageSquare, Monitor, BrainCircuit, ArrowRight } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -42,6 +42,14 @@ const SERVICES: readonly Service[] = [
             'Desenvolvimento de painéis administrativos, dashboards de BI e aplicações customizadas com stack Next.js + Python.',
         tags: ['Next.js', 'Python', 'Dashboard'],
         color: '#3d8ef0',
+    },
+    {
+        icon: BrainCircuit,
+        title: 'Inteligência Artificial',
+        description:
+            'Agentes de IA que atendem clientes, qualificam leads e executam tarefas sozinhos. Menos custo operacional, mais escala — sua empresa trabalha 24 horas sem aumentar o time.',
+        tags: ['Agentes de IA', 'Atendimento', 'Produtividade'],
+        color: '#22d3ee',
     },
 ] as const
 
@@ -101,7 +109,7 @@ export default function Services(): React.ReactElement {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-60px' }}
-                    className="grid md:grid-cols-3 gap-6 lg:gap-8"
+                    className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
                 >
                     {SERVICES.map((service) => (
                         <motion.div key={service.title} variants={cardVariants}>

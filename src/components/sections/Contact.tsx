@@ -298,7 +298,7 @@ export default function Contact(): React.ReactElement {
                                             <Textarea
                                                 id="message"
                                                 rows={4}
-                                                placeholder="Conte-nos sobre os processos que deseja automatizar, os sistemas que utiliza e os principais desafios..."
+                                                placeholder="Conte o que quer melhorar: atendimento, vendas, processos internos ou um agente de IA. Quanto mais detalhes, melhor o orçamento."
                                                 className="bg-[#050c1a] border-[#1a3050] text-[#e8f0f8] placeholder:text-[#8aa0b8] focus:border-[#1e6fdc] focus:ring-[#1e6fdc]/20 resize-none"
                                                 aria-describedby={errors.message ? 'message-error' : undefined}
                                                 aria-invalid={!!errors.message}

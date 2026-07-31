@@ -27,9 +27,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-    title: 'HFerraz Automação | Especialistas em Automação de Processos',
+    title: 'HFerraz Automação | Automação e Inteligência Artificial para Empresas',
     description:
-        'HFerraz Automação! Especialistas em automação de processos com N8N, desenvolvimento de APIs para WhatsApp e sistemas web com Next.js e Python. Criamos soluções sob medida para otimizar o tempo e aumentar a produtividade do seu negócio. Tecnologia que trabalha por você.',
+        'Automação de processos, WhatsApp, sistemas web e inteligência artificial sob medida. Reduza custos, escale o atendimento e faça sua empresa trabalhar por você — 24 horas por dia.',
     keywords: [
         'automação',
         'N8N',
@@ -37,12 +37,15 @@ export const metadata: Metadata = {
         'Next.js',
         'Python',
         'RPA',
+        'inteligência artificial',
+        'agentes de IA',
+        'LLM',
         'integração de sistemas',
         'automação de processos',
     ],
     openGraph: {
         title: 'HFerraz Automação',
-        description: 'Especialistas em automação de processos.',
+        description: 'Automação e IA que reduzem custos e fazem sua empresa escalar.',
         type: 'website',
         locale: 'pt_BR',
         siteName: 'HFerraz Automação',
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'HFerraz Automação',
-        description: 'Especialistas em automação de processos com N8N, WhatsApp API e Next.js.',
+        description: 'Automação e inteligência artificial sob medida para empresas que querem crescer com menos custo.',
     },
 }
 
