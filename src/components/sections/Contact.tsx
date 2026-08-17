@@ -329,6 +329,23 @@ export default function Contact(): React.ReactElement {
                                                     className="text-xs text-[#8aa0b8] leading-relaxed cursor-pointer hover:text-[#c0d0e0] transition-colors"
                                                 >
                                                     Aceito receber contato da HFerraz Automação por e-mail e WhatsApp.
+                                                    Li a{' '}
+                                                    <a
+                                                        href="/#privacy"
+                                                        className="text-[#3d8ef0] hover:text-[#1e6fdc] underline underline-offset-2"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        Política de Privacidade
+                                                    </a>
+                                                    {' '}e os{' '}
+                                                    <a
+                                                        href="/termos"
+                                                        className="text-[#3d8ef0] hover:text-[#1e6fdc] underline underline-offset-2"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        Termos de Uso
+                                                    </a>
+                                                    .
                                                 </Label>
                                             </div>
                                             {errors.consent && (

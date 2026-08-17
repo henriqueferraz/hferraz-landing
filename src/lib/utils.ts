@@ -39,8 +39,18 @@ export function cn(...inputs: ClassValue[]): string {
  * ```
  */
 export function scrollToSection(selector: string): void {
-  const element = document.querySelector(selector)
-  element?.scrollIntoView({ behavior: 'smooth' })
+  const hash = selector.includes('#') ? `#${selector.split('#')[1]}` : selector
+  const element = document.querySelector(hash)
+
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+    return
+  }
+
+  // Seção não está na página atual (ex.: /termos) — vai para a home com a âncora
+  if (typeof window !== 'undefined') {
+    window.location.assign(`/${hash}`)
+  }
 }
 
 /**

@@ -26,49 +26,49 @@ const PRIVACY_ITEMS: readonly PrivacyItem[] = [
     {
         icon: Database,
         color: '#1e6fdc',
-        title: 'Área inicial de privacidade',
-        description: 'Coletamos apenas os dados necessários para prestar nossos serviços com qualidade.',
+        title: 'Nosso compromisso',
+        description: 'Tratamos dados pessoais com ética, segurança e respeito à LGPD.',
         details: [
-            'Nós, da HFerraz, possuímos um compromisso com a Privacidade e Proteção de Dados! Por conta disso, estamos comprometidos em agir de forma ética e legal, seguindo as melhores diretrizes de Segurança da Informação e respeito à Lei Geral de Proteção de Dados Pessoais (LGPD).',
-            ' Nossa prioridade é garantir que todos os clientes, parceiros e terceiros que se relacionarem com a No Code Startup estejam seguros.',
-            ' Para isso, possuímos diversas Políticas de Compliance e Privacidade de Dados, assim como investimos na capacitação de nossos colaboradores, buscando criar uma estrutura organizacional de alta qualidade e eficiência.',
-            'Queremos oferecer a você o melhor serviço possível, ao mesmo tempo em que protegemos seus dados pessoais de maneira responsável. Entendemos que a Privacidade é um assunto fundamental, e levamos isso a sério.',
-            'Queremos que você se sinta seguro e confiante ao interagir conosco, sabendo que seus dados estão protegidos e que estamos comprometidos em manter uma relação de confiança mútua.Estamos aqui para cuidar dos seus dados pessoais da melhor maneira possível.'
+            'A HFerraz Automação está comprometida com a Privacidade e a Proteção de Dados, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018).',
+            'Nossa prioridade é garantir que clientes, parceiros e visitantes que se relacionam conosco tenham suas informações tratadas de forma segura e transparente.',
+            'Coletamos apenas os dados necessários para prestar nossos serviços, responder contatos e cumprir obrigações legais.',
         ],
     },
     {
         icon: UserCheck,
         color: '#3d8ef0',
         title: 'Como usamos',
-        description: 'De quem são os dados pessoais que possuimos?',
+        description: 'Usamos seus dados para contato, prestação de serviços e melhorias no site.',
         details: [
-            'Possuímos informações pessoais de dois principais titulares de dados: Clientes (lembrando que, se tratando de Pessoa Jurídica, estamos nos referindo aos dados pessoais do representante legal) e dos nossos Colaboradores. ',
-            'Enviar informações sobre nossos serviços mediante consentimento',
-            'Melhorar a experiência de navegação no site',
-            'Cumprir obrigações legais e regulatórias',
+            'Responder solicitações enviadas pelo formulário de contato (nome, e-mail, WhatsApp, empresa e mensagem)',
+            'Enviar informações sobre nossos serviços mediante o seu consentimento',
+            'Formalizar propostas, contratos e suporte técnico com clientes e representantes legais',
+            'Melhorar a experiência de navegação e cumprir obrigações legais e regulatórias',
         ],
     },
     {
         icon: Lock,
         color: '#2a7fff',
         title: 'Como protegemos',
-        description: 'Adotamos medidas técnicas e organizacionais para garantir a segurança das suas informações.',
+        description: 'Adotamos medidas técnicas e organizacionais para proteger suas informações.',
         details: [
             'Transmissão de dados via HTTPS com criptografia TLS',
             'Acesso restrito apenas a colaboradores autorizados',
-            'Sem compartilhamento com terceiros para fins comerciais',
-            'Exclusão dos dados mediante solicitação do titular',
+            'Sem venda ou compartilhamento com terceiros para fins comerciais',
+            'Exclusão ou anonimização dos dados mediante solicitação do titular, quando aplicável',
         ],
     },
     {
         icon: Mail,
         color: '#1e6fdc',
         title: 'Seus direitos (LGPD)',
-        description: 'Por que a HFerraz utiliza dados pessoais?',
+        description: 'Você controla seus dados e pode exercer seus direitos a qualquer momento.',
         details: [
-            'Precisamos dos dados pessoais dos clientes e dos nossos parceiros para consolidar nossa relação, formalizar contratos e enviar artigos de publicidade e propaganda aos que desejarem, assim como para responder e manter contato com quem nos procura no website ou redes sociais.',
-            'Por conta disso, trabalhamos dia e noite para oferecer a você o melhor produto e a melhor experiência de serviço, para garantir uma satisfação completa.',
-            'Quando falamos em proteção à privacidade, isso envolve comprometimento com a segurança de seus dados e respeito à sua privacidade, mas também um compromisso nosso de você estar no controle de suas informações pessoais.'
+            'Confirmar a existência de tratamento e acessar seus dados pessoais',
+            'Corrigir dados incompletos, inexatos ou desatualizados',
+            'Solicitar anonimização, bloqueio ou eliminação de dados desnecessários',
+            'Revogar o consentimento e pedir informações sobre compartilhamentos',
+            'Para exercer esses direitos, entre em contato pelos canais oficiais da HFerraz — respondemos em até 24 horas úteis',
         ],
     },
 ] as const
@@ -240,7 +240,7 @@ export default function Privacy(): React.ReactElement {
                     <span>
                         Dúvidas sobre privacidade?{' '}
                         <a
-                            href="#contact"
+                            href="/#contact"
                             className="text-[#3d8ef0] hover:text-[#1e6fdc] underline underline-offset-2 transition-colors"
                         >
                             Entre em contato
