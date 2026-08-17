@@ -57,15 +57,15 @@ const FOOTER_LINK_GROUPS: readonly FooterLinkGroup[] = [
     {
         category: 'Plataforma',
         links: [
-            { label: 'Solutions', href: '#services' },
-            { label: 'API Docs', href: '#' },
+            { label: 'Soluções', href: '#services' },
+            { label: 'API Docs', href: '#how-it-works' },
         ],
     },
     {
         category: 'Empresa',
         links: [
-            { label: 'Privacy Policy', href: '#' },
-            { label: 'Termos de Uso', href: '#' },
+            { label: 'Política de Privacidade', href: '#privacy' },
+            { label: 'Termos de Uso', href: '/termos' },
         ],
     },
 ] as const

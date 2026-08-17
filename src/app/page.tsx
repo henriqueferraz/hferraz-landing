@@ -7,6 +7,7 @@ import HowItWorks from '@/components/sections/HowItWorks'
 import Technologies from '@/components/sections/Technologies'
 import Testimonials from '@/components/sections/Testimonials'
 import Contact from '@/components/sections/Contact'
+import Privacy from '@/components/sections/Privacy'
 
 export default function HomePage() {
     return (
@@ -20,6 +21,7 @@ export default function HomePage() {
                 <Technologies />
                 <Testimonials />
                 <Contact />
+                <Privacy />
             </main>
             <Footer />
         </>

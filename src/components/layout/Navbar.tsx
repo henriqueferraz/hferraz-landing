@@ -29,6 +29,7 @@ const NAV_ITEMS: readonly NavItem[] = [
     { label: 'Benefícios', href: '#benefits' },
     { label: 'Como Funciona', href: '#how-it-works' },
     { label: 'Contato', href: '#contact' },
+    { label: 'Privacidade', href: '#privacy' },
 ] as const
 
 /**

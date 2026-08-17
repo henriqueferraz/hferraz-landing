@@ -7,7 +7,7 @@ const testimonials = [
     {
         name: 'Carlos Mendes',
         role: 'Diretor de Operações',
-        company: 'LogiTech Brasil',
+        company: 'SandaPlus',
         content:
             'A HFerraz transformou completamente nosso processo de atendimento. Reduzimos o tempo de resposta em 80% com a automação do WhatsApp. Resultado impressionante.',
         rating: 5,
@@ -17,7 +17,7 @@ const testimonials = [
     {
         name: 'Ana Paula Souza',
         role: 'CEO',
-        company: 'Nexus Consultoria',
+        company: 'LovaT Consultoria',
         content:
             'O sistema de automação com N8N que desenvolveram para nós integrou 12 ferramentas diferentes. Economizamos mais de 40 horas semanais de trabalho manual.',
         rating: 5,
@@ -27,7 +27,7 @@ const testimonials = [
     {
         name: 'Roberto Lima',
         role: 'CTO',
-        company: 'DataFlow Systems',
+        company: 'PyiPwol StartUp',
         content:
             'Dashboard desenvolvido em Next.js com Python no backend. Performance excepcional e código limpo. A equipe da HFerraz entrega com qualidade e no prazo.',
         rating: 5,

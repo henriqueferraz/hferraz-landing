@@ -6,17 +6,17 @@ Landing page institucional da **HFerraz Automação**, empresa especializada em 
 
 ## Stack
 
-| Tecnologia | Versão | Função |
-|---|---|---|
-| [Next.js](https://nextjs.org) | 16.2.6 | Framework React com App Router |
-| [React](https://react.dev) | 19 | UI Library |
-| [TypeScript](https://typescriptlang.org) | 5.x | Linguagem (strict mode) |
-| [Tailwind CSS](https://tailwindcss.com) | 3.x | Estilização utilitária |
-| [shadcn/ui](https://ui.shadcn.com) | 4.x | Componentes acessíveis (Radix UI) |
-| [Framer Motion](https://www.framer.com/motion) | 11.x | Animações |
-| [React Hook Form](https://react-hook-form.com) | 7.x | Gerenciamento de formulários |
-| [Zod](https://zod.dev) | 3.x | Validação de schema |
-| [Lucide React](https://lucide.dev) | — | Ícones SVG |
+| Tecnologia                                     | Versão | Função                            |
+| ---------------------------------------------- | ------ | --------------------------------- |
+| [Next.js](https://nextjs.org)                  | 16.2.6 | Framework React com App Router    |
+| [React](https://react.dev)                     | 19     | UI Library                        |
+| [TypeScript](https://typescriptlang.org)       | 5.x    | Linguagem (strict mode)           |
+| [Tailwind CSS](https://tailwindcss.com)        | 3.x    | Estilização utilitária            |
+| [shadcn/ui](https://ui.shadcn.com)             | 4.x    | Componentes acessíveis (Radix UI) |
+| [Framer Motion](https://www.framer.com/motion) | 11.x   | Animações                         |
+| [React Hook Form](https://react-hook-form.com) | 7.x    | Gerenciamento de formulários      |
+| [Zod](https://zod.dev)                         | 3.x    | Validação de schema               |
+| [Lucide React](https://lucide.dev)             | —      | Ícones SVG                        |
 
 ---
 
@@ -89,7 +89,8 @@ src/
 │   │   ├── HowItWorks.tsx  # Timeline de 4 etapas
 │   │   ├── Technologies.tsx# Grid de tecnologias com SVG icons
 │   │   ├── Testimonials.tsx# Depoimentos de clientes
-│   │   └── Contact.tsx     # Formulário validado (shadcn Input/Checkbox)
+│   │   ├── Contact.tsx     # Formulário validado (shadcn Input/Checkbox)
+│   │   └── Privacy.tsx     # Política de privacidade resumida (LGPD)
 │   └── ui/                 # Componentes shadcn/ui (não editar manualmente)
 │
 ├── hooks/
